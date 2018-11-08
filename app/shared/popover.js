@@ -4,6 +4,16 @@ class Popover {
     this.el = el;
   }
 
+  _get_name(name) {
+    if (name == 'Rich Stanek') {
+      return 'Stanek';
+    } else if (name == 'Dave Hutch') {
+      return 'Hutchinson';
+    } else {
+      return 'label-oth';
+    }
+  }
+
   _get_label(party) {
     if (party == 'Rich Stanek') {
       return 'label-stanek';
@@ -32,12 +42,12 @@ class Popover {
       </thead> \
       <tbody> \
         <tr> \
-          <td><span class="' + this._get_label(winner.name) + '"></span>' + winner.name + '</td> \
+          <td><span class="' + this._get_label(winner.name) + '"></span>' + this._get_name(winner.name) + '</td> \
           <td id="votes-r" class="right">' + winner.votes + '</td> \
           <td id="pct-r" class="right">' + Math.round(winner.votes_pct) + '%</td> \
         </tr> \
         <tr> \
-          <td><span class="' + this._get_label(second.name) + '"></span>' + second.name + '</td> \
+          <td><span class="' + this._get_label(second.name) + '"></span>' + this._get_name(second.name) + '</td> \
           <td id="votes-r" class="right">' + second.votes + '</td> \
           <td id="pct-r" class="right">' + Math.round(second.votes_pct) + '%</td> \
         </tr>\
